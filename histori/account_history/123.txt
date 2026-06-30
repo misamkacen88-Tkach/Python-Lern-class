@@ -1,4 +1,1 @@
- +1 Operetion depisit 
- +23333 Operetion depisit 
- -12 Operetion withdraw 
- -1111 Transfer to Misha id 1234 
+2007.08.17;Transfer from Nana, 12345;903

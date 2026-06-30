@@ -26,7 +26,7 @@ class Cat(Animal):
         
 class Duck(Animal):
     
-     def info(self):
+    def info(self):
        
         print('5')
    

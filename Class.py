@@ -8,25 +8,63 @@ os.makedirs("Workout", exist_ok=True)
 def clear():
     os.system('cls')
 
+class Transaction:
+    def __init__(self, data, operetion, amount):
+        self.data = data
+        self.operetion = operetion
+        self.amount = int(amount) 
+    
+    def __str__(self):
+        return f"{self.data};{self.operetion};{self.amount}"
+    
+    def __repr__(self):
+        return self.__str__()
+        
 class HistoryTxt:
     def __init__(self,path):
         self.path = path
         os.makedirs(f"histori/{self.path}", exist_ok=True)
     
-    def save(self,user_id,histori):
+    def save(self,user_id,histori, x = 'a'):
         
-        with open(f"histori/{self.path}/{user_id}.txt",'a') as file:
+        with open(f"histori/{self.path}/{user_id}.txt", x ) as file:
             file.write(f"{histori}\n")
     
-    def read_history(self,user_id):
+    def read_history(self,user_id,x = False):
          with open(f"histori/{self.path}/{user_id}.txt",'r') as file:
              lines = file.readlines()
         
          for line in lines:
              print(line)
-         print("tach random buton.... ")
-         msvcrt.getch()
-         clear()
+         if x:
+          print("tach random buton.... ")
+          msvcrt.getch()
+          clear()    
+    
+    def save_all(self,user_id,history):
+        
+        with open(f"histori/{self.path}/{user_id}.txt", 'w') as file:
+            for transaction in history:
+                file.write(f"{transaction}\n")     
+    
+    def sort(self,user_id,key,reverses = False):
+         with open(f"histori/{self.path}/{user_id}.txt",'r') as file:
+             lines = file.readlines()
+        
+         history = []
+
+         for line in lines:
+           date, operation, amount = line.strip().split(";")
+           history.append(Transaction(date, operation, amount))
+         history.sort(key=key, reverse=reverses)
+       
+         self.save_all(user_id, history)
+         self.read_history(user_id,x=True)
+        
+
+
+
+
 
 class BankAccount:
     def __init__(self,name,money,id):
@@ -34,7 +72,7 @@ class BankAccount:
         self.__money = money
         self.id = id
         self.history = HistoryTxt('account_history')
-     
+    
     
     @property
     def money(self):
@@ -46,19 +84,24 @@ class BankAccount:
         self.__money += amount
         self.save()
         if save_history :
-          self.history.save(self.id, f" +{amount} Operetion depisit ")
+          self.history.save(self.id, f"2007.08.17;deposit;{amount}")
         
     def withdraw(self, amount, save_history = True):
         if self.__money >= amount:
             self.__money -= amount
             self.save()
             if save_history :
-             self.history.save(self.id, f" -{amount} Operetion withdraw ")
+             self.history.save(self.id, f"2007.08.17;withdraw;-{amount}")
         else:
             print("Money is not enough")
             
-    def show_balance(self):
+    def show_balance(self, admin = False):
         print(f"Name: {self.name} \nBalance: {self.__money}")
+        
+        if admin:
+            print(f"\nID: {self.id} \nHistory: ")
+            self.history.read_history(self.id)
+            
         
     def save(self):
         with open(f"accounts/{self.id}.txt", "w") as file:
@@ -88,8 +131,8 @@ class BankAccount:
             if x == "Yes":
                 other_user.deposit(amount,False)
                 self.withdraw(amount,False)
-                self.history.save(self.id, f" -{amount} Transfer to {other_user.name} id {other_user.id} ")
-                self.history.save(other_user.id, f" +{amount} Transfer from {self.name} id {self.id} ")
+                self.history.save(self.id, f"2007.08.17;Transfer to {other_user.name}, {other_user.id};-{amount}")
+                self.history.save(other_user.id, f"2007.08.17;Transfer from {self.name}, {self.id};{amount}")
             else:
               print("Operetion not faund")
         else:
@@ -194,6 +237,8 @@ class Terminals:
                 print("No commands")
     
     
+    
+    
     def bank_manu(self):
         
         while True:
@@ -244,8 +289,12 @@ class Terminals:
                 self.bank.transfer() 
             elif choice_bank == '7':
                 
+                self.histori_Bank()
+                
+            elif choice_bank == '0':
+                
                 clear()
-                self.bank.history.read_history(self.bank.id) 
+                self.bank.show_balance(True)
             else:
                 
                 clear()
@@ -300,6 +349,65 @@ class Terminals:
                 clear()
                 break
     
+    def histori_Bank(self):
+        
+        while True:
+         self.bank.history.read_history(self.bank.id)
+         print("\n1. Wotch histori")
+         print("\n2. Sort histori")
+            
+         choice_bank = input('> ').strip()
+         if choice_bank == '4':
+                  clear()
+                  print("\nApp exit")
+                  break
+         elif choice_bank =='1':
+              clear()
+              self.bank.history.read_history(self.bank.id,x = True) 
+         elif choice_bank == '2':
+             reverse = False
+             sort_by = '0'
+             while True:
+              clear()
+              print(f"\n> tipe: {sort_by}: {reverse}")
+              print(f"\n0. Reverse: {reverse}")
+              print("\n1. Data")
+              print("\n2. Operetion")
+              print("\n3. Amount")
+             
+              choice_bank2 = input('> ').strip()
+             
+              if choice_bank2 == '4':
+                   clear()
+                   print("\nApp exit")
+                   break
+              elif choice_bank2 == '1':
+                  sort_by = 'data'
+              elif choice_bank2 == '2':
+                  sort_by = 'operetion'
+              elif choice_bank2 == '3':
+                 sort_by = 'amount'
+              elif choice_bank2 == '0' and reverse == False:
+                 reverse = True
+              elif choice_bank2 == '0' and reverse == True:
+                 reverse = False
+              elif choice_bank2 == '5' :
+                  print(sort_by)
+                  self.bank.history.sort(
+                  self.bank.id,
+                  key=lambda x: getattr(x, sort_by),
+                  reverses=reverse)
+               
+              else:   
+                  clear()
+                  print(f"No commands < {choice_bank} >")
+                 
+                 
+             
+   
+   
+   
+   
     
     def work_menu(self):
         
