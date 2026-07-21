@@ -16,22 +16,22 @@
 # >	__gt__
 # <=	__le__
 # >=	__ge__
-# class Inventory:
+class Inventory:
 
-#     def __init__(self):
-#         self.items = [
-#             "Sword",
-#             "Shield",
-#             "Potion"
-#         ]
+    def __init__(self):
+        self.items = [
+            "Sword",
+            "Shield",
+            "Potion"
+        ]
         
-#     def __getitem__(self, x ):
-#         print(f"Python asks for index {x}")
+    def __getitem__(self, x ):
+        print(f"Python asks for index {x}")
 
-#         return  self.items[x]
+        return  self.items[x]
        
 
-# invent = Inventory()
+invent = Inventory()
 
 # # for item in invent:
 # #     print(item)

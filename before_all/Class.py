@@ -3,7 +3,7 @@ import msvcrt
 
 os.makedirs("accounts", exist_ok=True)
 os.makedirs("histori", exist_ok=True)
-os.makedirs("Workout", exist_ok=True)
+os.makedirs("ideaout", exist_ok=True)
 
 def clear():
     os.system('cls')
@@ -148,46 +148,46 @@ class BankAccount:
 class Workout:
     def __init__(self,traen):
         self.traen = traen
-        with open(f"Workout/{self.traen}.txt", "a") as file:
+        with open(f"ideaout/{self.traen}.txt", "a") as file:
             file.write(" ")
-    def read_work(self):
-        with open(f"Workout/{self.traen}.txt", "r") as file:
+    def read_idea(self):
+        with open(f"ideaout/{self.traen}.txt", "r") as file:
             lines = file.readlines()
         
         clear()
         for i, task in enumerate(lines, start=0):
            print(f"{i}. {task.strip()}")
     
-    def write_work(self):
+    def write_idea(self):
         clear()
     
-        work = input("We are works: ")
-        with open(f"Workout/{self.traen}.txt", "a") as file:
-            file.write(f"\n{work}; ")
+        idea = input("We are ideas: ")
+        with open(f"ideaout/{self.traen}.txt", "a") as file:
+            file.write(f"\n{idea}; ")
        
     
-    def delite_work(self):
+    def delite_idea(self):
         
         clear()
         
-        self.read_work()
+        self.read_idea()
          
-        work = int(input("\nWath delite work: ").strip())
+        idea = int(input("\nWath delite idea: ").strip())
         
-        with open(f"Workout/{self.traen}.txt", "r") as file:
+        with open(f"ideaout/{self.traen}.txt", "r") as file:
             tasks = file.readlines()
         
-        if work == -1:
+        if idea == -1:
             
             tasks.clear() 
-        elif -1<= work <= len(tasks):
+        elif -1<= idea <= len(tasks):
             
-            tasks.pop(work - 1)
+            tasks.pop(idea - 1)
         else:
             print("Еблан тупой нету такой задачи!!!!!!!!")
         
         
-        with open(f"Workout/{self.traen}.txt", "w") as file:
+        with open(f"ideaout/{self.traen}.txt", "w") as file:
             file.writelines(tasks)
             
         
@@ -201,7 +201,7 @@ class Terminals:
     
     def __init__(self):
         self.bank = None
-        self.work = None
+        self.idea = None
     
     
     def menu(self):  
@@ -210,7 +210,7 @@ class Terminals:
        
             print("\n1. Bank")
             print("2. WorkoutJournal")
-            print("3. Todo list")
+            print("3. IdeaList")
             print("4. Exit")
         
             choice = input('> ').strip()
@@ -224,7 +224,11 @@ class Terminals:
             elif choice == '2':
                 
                 clear()
-                self.work_menu()
+                self.idea_menu()
+            elif choice == '3':
+                
+                clear()
+                self.idea_menu()
                 
             elif choice == '4':
                 
@@ -299,8 +303,7 @@ class Terminals:
                 
                 clear()
                 print(f"No commands < {choice_bank} >")
-            
-                
+                   
     def creat_acc_Bank(self):
         
          while True:
@@ -403,51 +406,54 @@ class Terminals:
                   print(f"No commands < {choice_bank} >")
                  
                  
-             
+    # def idea_menu(self):
+        
+    #     while True:
+    #         print("1. Add idea")
    
    
    
    
     
-    def work_menu(self):
+    def idea_menu(self):
         
         while True:
-             print("\n1. Read work")
-             print("\n2. Write work")
-             print("\n3. Open work dey")
-             print("\n5. Delite work")
+             print("\n1. Read idea")
+             print("\n2. Write idea")
+             print("\n3. Open idea dey")
+             print("\n5. Delite idea")
              
-             choice_work = input('> ').strip()
+             choice_idea = input('> ').strip()
              
              
              
-             if choice_work == '4':
+             if choice_idea == '4':
                  
                 clear()
                 print("\nApp exit")
                 break
             
-             elif choice_work == '3':
+             elif choice_idea == '3':
                  
                  print("Wath is the dey?")
-                 self.work = Workout(input('> ').strip())
+                 self.idea = Workout(input('> ').strip())
                  clear()
                  
-             elif self.work is None:
+             elif self.idea is None:
                  
                  clear()
-                 print("Open work plise")
+                 print("Open idea plise")
                  
-             elif choice_work == '1':
+             elif choice_idea == '1':
                  
-                 self.work.read_work()
+                 self.idea.read_idea()
                  
-             elif choice_work == '2':
+             elif choice_idea == '2':
                  
-                 self.work.write_work()
-             elif choice_work == '5':
+                 self.idea.write_idea()
+             elif choice_idea == '5':
                  
-                 self.work.delite_work()
+                 self.idea.delite_idea()
                  
              
              
