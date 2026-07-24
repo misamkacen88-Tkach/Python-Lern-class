@@ -200,12 +200,12 @@ houer = 60
 
 
 
-for i in range((x := int(input()))):
-    for j in range(x,0 +i,-1):
+# for i in range((x := int(input()))):
+#     for j in range(x,0 +i,-1):
         
-        print(j,end=' ')
+#         print(j,end=' ')
     
-    print()
+#     print()
 
     
     
@@ -234,6 +234,86 @@ for i in range((x := int(input()))):
      
     
 
+# if str.isdigit(x := input()):
+#     print(int(x)*3)
+# else:
+#     print("No number 1")
+
+
+
+# try:
+#     print(int(x)*3)
+# except:
+#     print("еблан 2")
+
+
+# x ="backend"
+
+# for i in range(len(x)):
+#     print(x[i] * (i+1))
+
+# s = "backend"
+# print(s[-1:0:-1])
+
+# x = 'abcd'
+# print(f"{(x[1]*4)}\n{x[-2:] + '!'}\n{x[0:-3]}\n{x + x[-1::-1]}\n{x[1::2]}\n{x[::2]}")
+
+
+# print(ord('a'))
+# print(chr(97))
+
+# key = int(input())
+# shifrotext = ''
+# plantext = [shifrotext + i for i in chr(ord(input().split('.')) + key)]
+
+# print(plantext)
+
+
+
+# s = input()
+# step = int(input())
+
+
+# res = "".join(
+#     chr((ord(char) - ord("a") + step) % 26 + ord("a")) for char in s
+# )
+
+# print(res)
+
+# res = "".join(chr((ord(char) - ord("a") - step) % 26 + ord("a")) for char in res)
+# print(res)
+
+
+
+# s = input()
+
+# max_char = ""
+# max_count = 0
+
+# current_char = ""
+# current_count = 0
+
+# for char in s:
+#     if char == current_char:
+#         current_count += 1
+#     else:
+#         current_char = char
+#         current_count = 1
+
+
+#     if current_count >= max_count:
+#         max_count = current_count
+#         max_char = current_char
+
+# print(max_char)
+# print(max_count)
+
+
+
+
+
+
+# print( len(input().split()))
 
 
 
@@ -246,6 +326,44 @@ for i in range((x := int(input()))):
 
 
 
+
+
+
+
+
+
+
+
+
+# КОРТЕЖИ:
+# man = ('Mishel',23,'Programer')
+# name,age,profession = man
+
+# print(name)
+
+
+
+
+# a, *b = 1,2,3,4,5,6
+# c, *_ = 2,3,4,5,6
+# print(type(a)) # 1
+# print(type(b))
+# print(_)
+
+
+
+perents = (
+            ('Mam1',1980,('Gey','Parf','Max')),
+            ('Mam2',1993,('Gey','Parfan','Max')),
+            ('Mam3',1976,('Gey','Parfenenko','Max')),)
+
+
+for perent in perents:
+    
+    name, age, cildrens = perent
+    print(f"\n\nName mamka : {name},\nAge : {age},\nChildrens : ")
+    for i in cildrens:
+        print(i,end=', ')
 
 
 

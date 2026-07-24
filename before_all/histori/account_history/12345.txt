@@ -1,0 +1,13 @@
+2007.08.17;deposit;5456
+2007.08.17;deposit;1234
+2007.08.17;weposit;1000
+2007.08.17;Qeposit;777
+2007.08.17;aeposit;546
+2007.08.17;deposit;111
+2007.08.17;zeposit;100
+2007.08.17;deposit;98
+2007.08.17;Zeposit;98
+2007.08.17;deposit;56
+2007.08.17;deposit;9
+2007.08.17;deposit;6
+2007.08.17;Transfer to Ivan, 123;-903

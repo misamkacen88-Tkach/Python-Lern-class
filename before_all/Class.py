@@ -29,6 +29,7 @@ class HistoryTxt:
         
         with open(f"histori/{self.path}/{user_id}.txt", x ) as file:
             file.write(f"{histori}\n")
+            
     
     def read_history(self,user_id,x = False):
          with open(f"histori/{self.path}/{user_id}.txt",'r') as file:
