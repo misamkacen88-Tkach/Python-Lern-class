@@ -23,7 +23,7 @@ class Datebase:
                 product = Product.from_lines(lines)
                 print('2 find')
         except:
-            print('2 find Error')
+            print('2 find Errorr')
             return None
             
         return product
