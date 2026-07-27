@@ -1,10 +1,11 @@
 class Product:
 
-    def __init__(self, id, name, calories, protein, fat, cards,minerals, vitamins):
+    def __init__(self, id, name,grams, calories, protein, fat, cards,minerals, vitamins):
 
         self.id = id
         self.name = name
         
+        self.grams = grams
         self.calories = calories
         self.protein = protein
         self.fat = fat
@@ -15,6 +16,7 @@ class Product:
     
     def __str__(self):
         return (f"Name: {self.name}\n\n"
+                f"Grams: {self.grams}\n\n"
                 f"Calories: {self.calories}\n\n"
                 f"Protein: {self.protein}\n\n"
                 f"Fat: {self.fat}\n\n"
@@ -28,33 +30,105 @@ class Product:
     def from_lines(cls,lines):
         
         lines = [line.strip() for line in lines]
-        print('1 fromLines')
-        return cls(
-            int(lines[0]),
-            lines[1],
-            float(lines[2]),
-            float(lines[3]),
-            float(lines[4]),
-            float(lines[5]),
-            vitamins = {"B3":float(lines[6]),
-                        "B6":float(lines[7]),
-                        "B9":float(lines[8]),
-                        "B5":float(lines[9]),
-                        "B2":float(lines[10]),
-                        "B7":float(lines[11]),
-                        "B12":float(lines[12]),
-                        "B9":float(lines[13])},
-            
-            minerals = {"Калий":float(lines[14]),
-                        "Фосфор":float(lines[15]),
-                        "Селен":float(lines[16]),
-                        "Сера":float(lines[17]),
-                        "Хлор":float(lines[18]),
-                        "Натрий":float(lines[19]),
-                        "Магний":float(lines[20]),
-                        "Цинк":float(lines[21])}
-                   )
         
+        
+        data = {
+            "id" : int(lines[0]),
+            'name':lines[1],
+            "grams" : int(lines[2]),
+            "calories" : float(lines[3]),
+            "protein" : float(lines[4]),
+            "fat":float(lines[5]),
+            "cards":float(lines[6]),
+            "vitamins" : {"B3":float(lines[7]),
+                        "B6":float(lines[8]),
+                        "B9":float(lines[9]),
+                        "B5":float(lines[10]),
+                        "B2":float(lines[11]),
+                        "B7":float(lines[12]),
+                        "B12":float(lines[13]),
+                        "B9":float(lines[14])},
+            "minerals" : {"Калий":float(lines[15]),
+                        "Фосфор":float(lines[16]),
+                        "Селен":float(lines[17]),
+                        "Сера":float(lines[18]),
+                        "Хлор":float(lines[19]),
+                        "Натрий":float(lines[20]),
+                        "Магний":float(lines[21]),
+                        "Цинк":float(lines[22])}}
+            
+         
+        
+        
+        
+        
+        return cls.from_dict(data)
+        
+
+    @classmethod
+    def from_dict(cls, data):
+        return cls(**data)
+    
+    
+    
+    
+    
+    
+    
+    def __mul__(self, coefficient):
+        
+        grams = self.grams * coefficient
+        calories = self.calories * coefficient
+        protein = self.protein * coefficient
+        fat = self.fat * coefficient
+        cards = self.cards * coefficient
+        
+        new_vitamins = {
+            key: value * coefficient
+            for key, value in self.vitamins.items()
+        }
+        
+        new_minerals = {
+            key: value * coefficient
+            for key,value in self.minerals.items()
+        }
+        
+        return self._copy(self.id,
+                          self.name,
+                          grams,
+                          calories,
+                          protein,
+                          fat,
+                          cards,
+                          vitamins = new_vitamins,
+                          minerals = new_minerals
+                          )
+            
+
+    def __rmul__(self, coefficient):
+        return self.__mul__(coefficient)
+
+
+
+    def _copy(self,
+              id,
+              name,
+              grams, 
+              calories, 
+              protein, 
+              fat, cards,
+              minerals, 
+              vitamins
+              ):
+        return Product(id,
+                      name,
+                      grams, 
+                      calories, 
+                      protein, 
+                      fat, 
+                      cards,
+                      minerals, 
+                      vitamins)
     
     
     def _dict_to_string(self,data):
@@ -63,7 +137,21 @@ class Product:
             for key,value in data.items()
         )
     
-    
+
+    def to_lines(self):
+        
+        return [
+        str(self.id),
+        self.name,
+        
+        str(self.grams),
+        str(self.calories),
+        str(self.protein),
+        str(self.fat),
+        str(self.cards),
+        *map(str, self.vitamins.values()),
+        *map(str, self.minerals.values()),
+        ]
     
     
     

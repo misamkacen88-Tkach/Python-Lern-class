@@ -1,17 +1,42 @@
-
+from models.product import Product
 
 class ProductServise:
     
-    def __init__(self, datebase):
+    def __init__(self, datebase, calculator,addProduct):
         
         self.datebase = datebase
+        self.calculator = calculator
+        self.addProduct = addProduct
         
-    def ser_calculate(self,name, grams):
+    def find_product(self,name):
     
-        print('1 ser_cal')
+        
         result = self.datebase.find_product(name)
-        print('2 ser_cal')
+        
         return result
+    
+    def ser_calculate(self,name, grams):
+        
+            
+            result = self.datebase.find_product(name)
+            
+            product = self.calculator.calculate_product(result,grams)
+            
+            return product
+    
+    def add_product(self):
+        
+        result = self.addProduct.get_product_data()
+        
+        result["id"]= self.datebase.get_new_product_id()
+        
+        
+        
+        product = Product.from_dict(result)
+        
+        self.datebase.save_product(product)
+        return "Продукт успешно добавлено нах"
+        
 
 
 
