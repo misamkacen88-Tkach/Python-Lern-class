@@ -7,18 +7,16 @@ from models.product import Product
 
 class Datebase:
     
-    def __init__(self):
+    def __init__(self,logger):
         if not os.path.exists("callculetecall/datebase"):
             os.makedirs("callculetecall/datebase")
-            print('папку бд создано')
-        else:
-            print('папку бд найдено')
         
+        self.logger = logger
         self.bdId = {}
     
     
     
-    def find_product(self,id_product):
+    def find_product_by_id(self,id_product):
        
         try:
             with open(f"callculetecall/datebase/{id_product}.txt", 'r') as file:
@@ -26,9 +24,11 @@ class Datebase:
             
                 product = Product.from_lines(lines)
                 
-        except:
-            print('2 find Errorr')
-            return None
+        except Exception as ex:
+            self.logger.warning(
+                f"Dont Find -> {self.find_product_by_id.__name__}: {ex}"
+                )
+            return "Dont Find"
             
         return product
     
@@ -38,13 +38,13 @@ class Datebase:
         
         
         
-        print("save 1")
+      
         
         with open(f"callculetecall/datebase/{product.id}.txt", 'w') as file:
             
             file.write("\n".join(product.to_lines()))
             
-        print('save 2')
+        
             
   
         

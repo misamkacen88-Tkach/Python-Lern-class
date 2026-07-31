@@ -1,32 +1,37 @@
 from models.product import Product
+from utils.decorators import log
 
 class ProductServise:
     
-    def __init__(self, datebase, calculator,addProduct):
+    def __init__(self, datebase, calculator,logger):
         
         self.datebase = datebase
         self.calculator = calculator
-        self.addProduct = addProduct
+        self.logger = logger
         
-    def find_product(self,name):
+    @log
+    def find_product(self,product_id):
     
         
-        result = self.datebase.find_product(name)
+        result = self.datebase.find_product_by_id(product_id)
         
         return result
-    
+
+
+    @log
     def ser_calculate(self,name, grams):
         
             
-            result = self.datebase.find_product(name)
+            result = self.datebase.find_product_by_id(name)
             
             product = self.calculator.calculate_product(result,grams)
             
             return product
     
-    def add_product(self):
+    @log
+    def add_product(self,result):
         
-        result = self.addProduct.get_product_data()
+        
         
         result["id"]= self.datebase.get_new_product_id()
         
@@ -35,7 +40,7 @@ class ProductServise:
         product = Product.from_dict(result)
         
         self.datebase.save_product(product)
-        return "Продукт успешно добавлено нах"
+        return "Продукт успешно добавлено "
         
 
 

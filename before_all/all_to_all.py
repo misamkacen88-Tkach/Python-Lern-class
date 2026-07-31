@@ -352,20 +352,94 @@ houer = 60
 
 
 
-perents = (
-            ('Mam1',1980,('Gey','Parf','Max')),
-            ('Mam2',1993,('Gey','Parfan','Max')),
-            ('Mam3',1976,('Gey','Parfenenko','Max')),)
+# perents = (
+#             ('Mam1',1980,('Gey','Parf','Max')),
+#             ('Mam2',1993,('Gey','Parfan','Max')),
+#             ('Mam3',1976,('Gey','Parfenenko','Max')),)
 
 
-for perent in perents:
+# for perent in perents:
     
-    name, age, cildrens = perent
-    print(f"\n\nName mamka : {name},\nAge : {age},\nChildrens : ")
-    for i in cildrens:
-        print(i,end=', ')
+#     name, age, cildrens = perent
+#     print(f"\n\nName mamka : {name},\nAge : {age},\nChildrens : ")
+#     for i in cildrens:
+#         print(i,end=', ')
 
 
+# new_list = [int(input()) for i in range(int(input()))]
+
+
+
+# new_list = [int(i) for i in input().split(' ') ]
+
+# x = 1
+# for i in new_list:
+    
+#     x *= i
+#     print(x)
+
+
+
+# for i,j in enumerate(new_list):
+#     if i != 0:
+#         print(j + new_list[i-1], end=' ')
+
+# new_list = sorted(set(new_list))
+
+# print(new_list[-2])
+
+
+# count =0
+
+
+# for i,j in enumerate(new_list):
+    
+#     x = True
+   
+#     while x:
+#         if len(new_list) != 1 and new_list[i] == 0 :
+             
+#             new_list.pop(i)
+#             count +=1
+            
+#         else:
+            
+#             x = False
+ 
+# for i in range(count):
+#     new_list.append(0)
+
+# print( new_list)
+
+
+# new_list = [int(i) for i in input().split(' ') ]
+
+# for i,j in enumerate(new_list):
+    
+#      x = True
+   
+#      while x:
+#         if new_list[i] % 2 != 0 :
+#             print(j)
+#             new_list.pop(i)
+            
+            
+#         else:
+            
+#             x = False
+    
+
+
+# print(*new_list)
+
+print(
+    len(
+        {
+            i.replace('b','d',1) if i.startswith('b') else i.replace('c','') 
+            for i in ['aa','bbb','cccc', 'bacbac'] if len(i) > 2
+        }
+    )
+)
 
 
 

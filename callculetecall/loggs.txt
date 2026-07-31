@@ -1,0 +1,62 @@
+START -> find_product
+END -> find_product
+
+START -> find_product
+
+END -> find_product
+
+INFO START -> find_product
+
+INFO END -> find_product
+
+INFO START -> find_product
+
+INFO END -> find_product
+
+INFO START -> find_product
+
+ERROR ERROR -> find_product: 'Datebase' object has no attribute '__name__'
+
+INFO START -> find_product
+
+WARNING Dont Find -> find_product_by_id: list index out of range
+
+INFO END -> find_product
+
+INFO START -> ser_calculate
+
+ERROR ERROR -> ser_calculate: 'Datebase' object has no attribute 'find_product'
+
+INFO START -> ser_calculate
+
+INFO END -> ser_calculate
+
+INFO START -> ser_calculate
+
+INFO END -> ser_calculate
+
+INFO START -> ser_calculate
+
+INFO END -> ser_calculate
+
+INFO START -> ser_calculate
+
+INFO END -> ser_calculate
+
+INFO START -> ser_calculate
+
+INFO END -> ser_calculate
+
+INFO START -> ser_calculate
+
+INFO END -> ser_calculate
+
+INFO START -> ser_calculate
+
+WARNING Dont Find -> find_product_by_id: list index out of range
+
+ERROR ERROR -> ser_calculate: can't multiply sequence by non-int of type 'float'
+
+INFO START -> ser_calculate
+
+INFO END -> ser_calculate
