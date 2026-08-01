@@ -60,3 +60,91 @@ ERROR ERROR -> ser_calculate: can't multiply sequence by non-int of type 'float'
 INFO START -> ser_calculate
 
 INFO END -> ser_calculate
+
+INFO START -> get_product_data
+
+ERROR GenereteVitamins error -> wrapper: string indices must be integers, not 'str' | key: B3: 
+
+ERROR GenereteVitamins error -> wrapper: string indices must be integers, not 'str' | key: B9: 
+
+ERROR GenereteVitamins error -> wrapper: string indices must be integers, not 'str' | key: B6: 
+
+ERROR GenereteVitamins error -> wrapper: string indices must be integers, not 'str' | key: B7: 
+
+ERROR GenereteVitamins error -> wrapper: string indices must be integers, not 'str' | key: B11: 
+
+ERROR GenereteVitamins error -> wrapper: string indices must be integers, not 'str' | key: B13: 
+
+ERROR GenereteVitamins error -> wrapper: string indices must be integers, not 'str' | key: B12: 
+
+ERROR GenereteVitamins error -> wrapper: string indices must be integers, not 'str' | key: B10: 
+
+ERROR ERROR -> get_product_data: 'vitamins'
+
+INFO START -> get_product_data
+
+ERROR GenereteVitamins error -> wrapper: string indices must be integers, not 'str' | key: B3: 
+
+INFO START -> get_product_data
+
+INFO START -> get_product_data
+
+INFO START -> get_product_data
+
+INFO END -> get_product_data
+
+INFO START -> add_product
+
+ERROR ERROR -> add_product: 'NoneType' object does not support item assignment
+
+INFO START -> get_product_data
+
+INFO END -> get_product_data
+
+INFO START -> add_product
+
+INFO END -> add_product
+
+INFO START -> add_product
+
+ERROR ERROR -> add_product: ProductServise.add_product() missing 1 required positional argument: 'result'
+
+INFO START -> get_product_data
+
+INFO END -> get_product_data
+
+INFO START -> add_product
+
+INFO END -> add_product
+
+INFO START -> add_product
+
+ERROR ERROR -> add_product: ProductServise.add_product() missing 1 required positional argument: 'result'
+
+INFO START -> get_product_data
+
+INFO END -> get_product_data
+
+INFO START -> add_product
+
+INFO END -> add_product
+
+INFO START -> add_product
+
+ERROR ERROR -> add_product: ProductServise.add_product() missing 1 required positional argument: 'result'
+
+INFO START -> get_product_data
+
+INFO END -> get_product_data
+
+INFO START -> add_product
+
+INFO END -> add_product
+
+INFO START -> add_product
+
+ERROR ERROR -> add_product: ProductServise.add_product() missing 1 required positional argument: 'result'
+
+INFO START -> find_product
+
+INFO END -> find_product

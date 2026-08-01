@@ -1,9 +1,10 @@
-
+from functools import wraps
 
 
 
 def log(func):
-         
+    
+    @wraps(func)
     def wrapper(*args,**kwargs):
         
         
@@ -22,7 +23,7 @@ def log(func):
         except Exception as ex:
             
             self.logger.error(
-                f"ERROR -> {func.__name__}: {ex}"
+                f" -> {func.__name__}: {ex}"
                 )
             
             raise

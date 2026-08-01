@@ -35,10 +35,7 @@ class Datebase:
     
     
     def save_product(self,product):
-        
-        
-        
-      
+    
         
         with open(f"callculetecall/datebase/{product.id}.txt", 'w') as file:
             

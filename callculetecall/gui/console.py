@@ -1,8 +1,9 @@
 from utils.Clear import clear
 class Console:
     
-    def __init__(self,ProductServise,logger):
+    def __init__(self,ProductServise,сreateProductScreen,logger):
         self.productServise = ProductServise
+        self.сreateProductScreen = сreateProductScreen
         self.logger = logger
         
     def menu(self):
@@ -44,9 +45,11 @@ class Console:
                     
                 
                 case 2:
-                    result = self.addProduct.get_product_data()
+                    result = self.сreateProductScreen.get_product_data()
                     
-                    print(self.productServise.add_product(result ))
+                    
+                    
+                    print(f'\n{self.productServise.add_product(result)}\n')
                 
                 case 3:
                     
@@ -71,8 +74,7 @@ class Console:
             
             if choice == 4:
                 break  
-            elif choice == 2:
-                print(self.productServise.add_product())
+
             elif choice == 3:
                 try :
                                     

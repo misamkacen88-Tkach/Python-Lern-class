@@ -34,8 +34,7 @@ class ProductServise:
         
         
         result["id"]= self.datebase.get_new_product_id()
-        
-        
+         
         
         product = Product.from_dict(result)
         

@@ -432,18 +432,17 @@ houer = 60
 
 # print(*new_list)
 
-print(
-    len(
-        {
-            i.replace('b','d',1) if i.startswith('b') else i.replace('c','') 
-            for i in ['aa','bbb','cccc', 'bacbac'] if len(i) > 2
-        }
-    )
-)
+# print(
+#     len(
+#         {
+#             i.replace('b','d',1) if i.startswith('b') else i.replace('c','') 
+#             for i in ['aa','bbb','cccc', 'bacbac'] if len(i) > 2
+#         }
+#     )
+# )
 
-
-
-
+x = {'x':1, 'y': 2}
+print(len(x))
 
 
 
