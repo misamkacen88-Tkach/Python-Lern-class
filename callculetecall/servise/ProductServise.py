@@ -9,24 +9,46 @@ class ProductServise:
         self.calculator = calculator
         self.logger = logger
         
+    
     @log
-    def find_product(self,product_id):
+    def find_product(self,name):
+        
+            try:
+                return self.datebase.find_product_by_id(int(name))
+            except:
+                return self.datebase.find_product_by_name(name)
+                
+        
+    def find_similar_product(self,name):
+        
+        return self.datebase.find_similar_product(name)
+        
+    
+    
+    @log
+    def find_product_id(self,product_id):
     
         
         result = self.datebase.find_product_by_id(product_id)
         
         return result
 
+    @log
+    def find_product_name(self,product_name):
+    
+        
+        result = self.datebase.find_product_by_name(product_name)
+        
+        return result
 
     @log
     def ser_calculate(self,name, grams):
+        result = self.find_product(name)
         
+                
             
-            result = self.datebase.find_product_by_id(name)
             
-            product = self.calculator.calculate_product(result,grams)
-            
-            return product
+        return self.calculator.calculate_product(result,grams) if isinstance(result,Product) else result
     
     @log
     def add_product(self,result):
@@ -40,6 +62,13 @@ class ProductServise:
         
         self.datebase.save_product(product)
         return "Продукт успешно добавлено "
+
+    @log
+    def delite_product(self,product_id):
+        
+        result = self.datebase.delite_product_by_id( )
+        
+        return f"Product -> {result}, delite"
         
 
 

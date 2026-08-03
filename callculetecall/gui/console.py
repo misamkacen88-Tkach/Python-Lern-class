@@ -15,7 +15,7 @@ class Console:
             print("Add products: 2")
             print("find products: 3")
             print("Exit: 4")
-            print("Remuve products: 5")
+            print("Delite products: 5")
             print("Сhange products: 6")
 
             choice = int(input('=>'))
@@ -28,20 +28,31 @@ class Console:
                         
                         try:
                         
-                            choiceproduct = int(input("Id product =>"))
+                            choiceproduct = str(input("Name or id product =>"))
                             choicegrams = int(input("Grams =>"))
                             break
-                        except ValueError as ex :
+                        except Exception as ex :
                             clear()
-                            print("Velue not corect")
-                            self.logger.warning(
-                                f"Dont correct choice -> {self.menu.__name__}: {ex }"
+                            if isinstance(ex, ValueError):
+                                print("Velue not corect")
+                            else:
+                              self.logger.error(
+                                 f"calculate choice -> {self.menu.__name__}: {ex }"
                                                 )
                             
                     
-                    choiceProduct = self.productServise.ser_calculate(str(choiceproduct),choicegrams)
                     
-                    print(choiceProduct)
+                        choiceProduct = self.productServise.ser_calculate(choiceproduct,choicegrams)
+                        if not choiceProduct:
+                            print(f"Ви имели в виду {self.productServise.find_similar_product(choiceproduct)}?")
+                            choicesimilar = str(input("[Y/N] =>").upper)
+                            if choicesimilar == 'N':
+                                continue
+                            choiceProduct = self.productServise.ser_calculate(choiceproduct,choicegrams)
+                            
+                        print(choiceProduct)
+                        break
+                      
                     
                 
                 case 2:
@@ -52,8 +63,31 @@ class Console:
                     print(f'\n{self.productServise.add_product(result)}\n')
                 
                 case 3:
+                    while True:
+                        try :
+                                            
+                            choiceproduct = str(input("Write product =>"))
+                            break
+                        except Exception as ex :
+                            if isinstance(ex, ValueError):
+                                print("NOT CORECT CHOICE!!!\n ")
+                            else:
+                                self.logger.error(
+                                    f" find_product -> {self.menu.__name__}: {ex}"
+                                                )
+                                break
+                            
+                        choiceProduct = self.productServise.find_product(choiceproduct)
+                        
+                        if choiceProduct == str:
+                            print(f"Ви имели в виду {choiceProduct}?")
+                            choicesimilar = str(input("[Y/N] =>"))
+                            if choicesimilar == 'N':
+                                break
+                          
+                    print(choiceProduct)
                     
-                    pass
+                    
                 
                 case 4:
                     
@@ -61,7 +95,25 @@ class Console:
                 
                 case 5:
                     
-                    pass
+                    try :
+                                                             
+                        choiceproduct = int(input("Id product delite =>"))
+                        
+                        print(self.productServise.)
+                        
+                    except Exception as ex :
+                        
+                        if isinstance(ex, ValueError):
+                            
+                            print("Don't CORECT CHOICE!!!\n ")
+                            
+                        else:
+                            
+                            self.logger.error(
+                                f" delite_product -> {self.menu.__name__}: {ex}"
+                                              )
+                            
+                            break
                 
                 case 6:
                     
@@ -72,21 +124,7 @@ class Console:
                     pass
                 
             
-            if choice == 4:
-                break  
-
-            elif choice == 3:
-                try :
-                                    
-                    choiceproduct = int(input("Id product =>"))
-                    
-                except :
-                    print("NOT CORECT CHOICE!!!\nStep 101")
-                    
-                
-                choiceProduct = self.productServise.find_product(str(choiceproduct))
-                print(choiceProduct)
-                
+         
         
 
 
