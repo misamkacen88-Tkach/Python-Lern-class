@@ -1,6 +1,6 @@
 from utils.decorators import log
 from utils.Clear import clear
-
+from utils.commands import parse_and_execute_command
 
 class CreateProductScreen:
 
@@ -21,18 +21,15 @@ class CreateProductScreen:
             for key, (prompt, date_tape) in self.productFields.MAIN.items():
                 try:
 
-                    data[key] = date_tape(input(prompt))
+                    parse_and_execute_command(date := input(prompt))
+                    data[key] = date_tape(date)
 
-                except Exception as ex:
+                except ValueError:
 
-                    if isinstance(ex, ValueError):
-                        print(f"Dont corect product stat [ {key} ]")
-                        break
-                    else:
-                        self.logger.error(
-                            f"GenereteMain error -> {self.get_product_data.__name__}: {ex} | key: {key}"
-                        )
-                        break
+                    
+                    print(f"Dont corect product stat [ {key} ]")
+                    break
+                   
             
             if len(data) == len(self.productFields.MAIN):
             

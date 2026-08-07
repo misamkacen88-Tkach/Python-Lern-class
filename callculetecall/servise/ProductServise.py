@@ -12,7 +12,8 @@ class ProductServise:
     
     @log
     def find_product(self,name):
-        
+
+            
             try:
                 return self.datebase.find_product_by_id(int(name))
             except:
@@ -64,9 +65,23 @@ class ProductServise:
         return "Продукт успешно добавлено "
 
     @log
-    def delite_product(self,product_id):
+    def delite_product(self,name):
+            try:
+                return self.datebase.delite_product_by_id(int(name))
+            except:
+                return self.datebase.delite_product_by_name(name)
+
+    @log
+    def delite_product_by_name(self,name):
         
-        result = self.datebase.delite_product_by_id( )
+        result = self.datebase.delite_product_by_name(name)
+        
+        return f"Product -> {result}, delite"
+
+    @log
+    def delite_product_by_id(self,product_id):
+        
+        result = self.datebase.delite_product_by_id(product_id)
         
         return f"Product -> {result}, delite"
         

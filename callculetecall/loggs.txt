@@ -8,3 +8,329 @@ INFO START -> find_product
 INFO END -> find_product
 
 INFO END -> ser_calculate
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> ser_calculate
+
+INFO START -> find_product
+
+INFO END -> find_product
+
+INFO END -> ser_calculate
+
+INFO START -> ser_calculate
+
+INFO START -> find_product
+
+INFO END -> find_product
+
+INFO END -> ser_calculate
+
+INFO START -> ser_calculate
+
+INFO START -> find_product
+
+INFO END -> find_product
+
+INFO END -> ser_calculate
+
+INFO START -> ser_calculate
+
+INFO START -> find_product
+
+INFO END -> find_product
+
+INFO END -> ser_calculate
+
+INFO START -> ser_calculate
+
+INFO START -> find_product
+
+WARNING Dont Find -> find_product_by_id: [Errno 2] No such file or directory: 'callculetecall/datebase/0.txt'
+
+INFO END -> find_product
+
+INFO END -> ser_calculate
+
+INFO START -> ser_calculate
+
+INFO START -> find_product
+
+INFO END -> find_product
+
+INFO END -> ser_calculate
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+ERROR  delite_product -> menu: invalid literal for int() with base 10: '/exit -app'
+
+ERROR  delite_product -> menu: invalid literal for int() with base 10: '/exit -app'
+
+ERROR  delite_product -> menu: invalid literal for int() with base 10: '/menu'
+
+ERROR  delite_product -> menu: invalid literal for int() with base 10: '/exit -app'
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+ERROR  delite_product -> menu: invalid literal for int() with base 10: '/exit -app'
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> ser_calculate
+
+INFO START -> find_product
+
+INFO END -> find_product
+
+INFO END -> ser_calculate
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+ERROR  delite_product -> menu: invalid literal for int() with base 10: '/'
+
+ERROR  delite_product -> menu: invalid literal for int() with base 10: '/'
+
+INFO START -> ser_calculate
+
+INFO START -> find_product
+
+INFO END -> find_product
+
+INFO END -> ser_calculate
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+ERROR  delite_product -> menu: invalid literal for int() with base 10: '/'
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> get_product_data
+
+ERROR  -> get_product_data: 
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> get_product_data
+
+ERROR  -> get_product_data: 
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> delite_product
+
+INFO END -> delite_product
+
+INFO START -> delite_product
+
+INFO END -> delite_product
+
+INFO START -> get_product_data
+
+INFO END -> get_product_data
+
+INFO START -> add_product
+
+INFO END -> add_product
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> delite_product
+
+INFO END -> delite_product
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> get_product_data
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> get_product_data
+
+INFO END -> get_product_data
+
+INFO START -> add_product
+
+INFO END -> add_product
+
+ERROR  delite_product -> menu: cannot access local variable 'choiceProduct' where it is not associated with a value
+
+ERROR  delite_product -> menu: cannot access local variable 'choiceProduct' where it is not associated with a value
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> find_product
+
+WARNING Dont Find -> find_product_by_id: list index out of range
+
+INFO END -> find_product
+
+INFO START -> find_product
+
+WARNING Dont Find -> find_product_by_id: list index out of range
+
+INFO END -> find_product
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> find_product
+
+WARNING Dont Find -> find_product_by_id: list index out of range
+
+INFO END -> find_product
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> find_product
+
+WARNING Dont Find -> find_product_by_id: list index out of range
+
+INFO END -> find_product
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> find_product
+
+WARNING Dont Find -> find_product_by_id: list index out of range
+
+INFO END -> find_product
+
+INFO START -> find_product
+
+WARNING Dont Find -> find_product_by_id: list index out of range
+
+INFO END -> find_product
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> get_product_data
+
+INFO END -> get_product_data
+
+INFO START -> add_product
+
+INFO END -> add_product
+
+INFO START -> find_product
+
+INFO END -> find_product
+
+INFO START -> find_product
+
+ERROR  -> find_product: 'Product' object has no attribute 'lower'
+
+ERROR  delite_product -> menu: 'Product' object has no attribute 'lower'
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> find_product
+
+ERROR  -> find_product: 'str' object has no attribute 'lover'
+
+ERROR  delite_product -> menu: 'str' object has no attribute 'lover'
+
+INFO START -> ser_calculate
+
+INFO START -> find_product
+
+ERROR  -> find_product: 'str' object has no attribute 'lover'
+
+ERROR  -> ser_calculate: 'str' object has no attribute 'lover'
+
+ERROR  delite_product -> menu: 'str' object has no attribute 'lover'
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> ser_calculate
+
+INFO START -> find_product
+
+INFO END -> find_product
+
+INFO END -> ser_calculate
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> find_product
+
+INFO END -> find_product
+
+INFO START -> find_product
+
+ERROR  -> find_product: 'Product' object has no attribute 'lower'
+
+ERROR  delite_product -> menu: 'Product' object has no attribute 'lower'
+
+INFO START -> find_product
+
+INFO END -> find_product
+
+INFO START -> find_product
+
+ERROR  -> find_product: 'Product' object has no attribute 'lower'
+
+ERROR  delite_product -> menu: 'Product' object has no attribute 'lower'
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> find_product
+
+INFO END -> find_product

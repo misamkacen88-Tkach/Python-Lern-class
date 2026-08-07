@@ -1,6 +1,6 @@
 class Product:
 
-    def __init__(self, id, name,grams, calories, protein, fat, cards,minerals, vitamins):
+    def __init__(self, id, name,grams, calories, protein, fat, cards,fiber,minerals, vitamins):
 
         self.id = id
         self.name = name
@@ -10,6 +10,9 @@ class Product:
         self.protein = protein
         self.fat = fat
         self.cards = cards
+        
+        self.fiber = fiber
+        
         
         self.vitamins = vitamins
         self.minerals = minerals
@@ -21,6 +24,7 @@ class Product:
                 f"Protein: {self.protein}\n\n"
                 f"Fat: {self.fat}\n\n"
                 f"Cards: {self.cards}\n\n"
+                f"Fider: {self.fiber}\n\n"
                 f"Vitamins:\n{self._dict_to_string(self.vitamins)}\n\n"
                 f"Minerals:\n{self._dict_to_string(self.minerals)}\n\n"
                 )
@@ -40,22 +44,23 @@ class Product:
             "protein" : float(lines[4]),
             "fat":float(lines[5]),
             "cards":float(lines[6]),
-            "vitamins" : {"B3":float(lines[7]),
-                        "B6":float(lines[8]),
-                        "B9":float(lines[9]),
-                        "B5":float(lines[10]),
-                        "B2":float(lines[11]),
-                        "B7":float(lines[12]),
-                        "B12":float(lines[13]),
-                        "B9":float(lines[14])},
-            "minerals" : {"Калий":float(lines[15]),
-                        "Фосфор":float(lines[16]),
-                        "Селен":float(lines[17]),
-                        "Сера":float(lines[18]),
-                        "Хлор":float(lines[19]),
-                        "Натрий":float(lines[20]),
-                        "Магний":float(lines[21]),
-                        "Цинк":float(lines[22])}}
+            "fiber":float(lines[7]),
+            "vitamins" : {"A":float(lines[8]),
+                        "C":float(lines[9]),
+                        "D":float(lines[10]),
+                        "E":float(lines[11]),
+                        "K":float(lines[12]),
+                        "B1":float(lines[13]),
+                        "B9":float(lines[14]),
+                        "B12":float(lines[15])},
+            "minerals" : {"Калций":float(lines[16]),
+                        "Магний":float(lines[17]),
+                        "Калий":float(lines[18]),
+                        "Натрий":float(lines[19]),
+                        "Фосфор":float(lines[20]),
+                        "Железо":float(lines[21]),
+                        "Цинк":float(lines[22]),
+                        "Селен":float(lines[23])}}
             
          
         
@@ -82,6 +87,7 @@ class Product:
         protein = self.protein * coefficient
         fat = self.fat * coefficient
         cards = self.cards * coefficient
+        fiber = self.fiber *coefficient
         
         new_vitamins = {
             key: value * coefficient
@@ -100,6 +106,7 @@ class Product:
                           protein,
                           fat,
                           cards,
+                          fiber,
                           vitamins = new_vitamins,
                           minerals = new_minerals
                           )
@@ -117,8 +124,9 @@ class Product:
               calories, 
               protein, 
               fat, cards,
-              minerals, 
-              vitamins
+              fiber,
+              vitamins,
+              minerals
               ):
         return Product(id,
                       name,
@@ -127,8 +135,9 @@ class Product:
                       protein, 
                       fat, 
                       cards,
-                      minerals, 
-                      vitamins)
+                      fiber,
+                      vitamins,
+                      minerals)
     
     
     def _dict_to_string(self,data):
@@ -149,6 +158,7 @@ class Product:
         str(self.protein),
         str(self.fat),
         str(self.cards),
+        str(self.fiber),
         *map(str, self.vitamins.values()),
         *map(str, self.minerals.values()),
         ]

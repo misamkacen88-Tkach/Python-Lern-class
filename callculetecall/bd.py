@@ -26,7 +26,7 @@ class Datebase:
         try:
             with open(f"callculetecall/datebase/{id_product}.txt", 'r') as file:
                 lines = file.readlines()
-            
+                
                 product = Product.from_lines(lines)
                 
         except Exception as ex:    
@@ -63,8 +63,7 @@ class Datebase:
 
         return matches[0] if matches else None
         
-        
-        
+           
     
     def save_product(self,product):
     
@@ -75,7 +74,22 @@ class Datebase:
         
         self._update_index(product)
             
+        
+    def delite_product_by_id(self, product_id):
+        
+        if os.path.exists(f"callculetecall/datebase/{product_id}.txt"):
+            os.remove(f"callculetecall/datebase/{product_id}.txt")
     
+    def delite_product_by_name(self, name):
+        
+        name = name.lower()
+                
+        if name in self.name_to_id:
+                    
+            return self.delite_product_by_id(self.name_to_id[name])
+                
+        return None
+        
         
     def get_new_product_id(self):
         
@@ -91,6 +105,11 @@ class Datebase:
             return 1
 
         return max(ids) + 1
+    
+    
+    
+    
+    
     
     
     def _update_index(self, product):
