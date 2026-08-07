@@ -51,6 +51,8 @@ class Datebase:
     
     def find_similar_product(self,name):
         
+     
+        
         matches = get_close_matches(
             name,
             self.name_to_id.keys(),
@@ -105,10 +107,11 @@ class Datebase:
             
             
             try:
-                with open(f"callculetecall/datebase/{file_name}", 'w' ) as file:
+                with open(f"callculetecall/datebase/{file_name}", 'r' ) as file:
                     
                     
                     id_product = int(file.readline().strip())
+                    
                     name_product = file.readline().strip()
             
             except Exception as ex:

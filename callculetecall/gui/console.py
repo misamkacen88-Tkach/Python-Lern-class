@@ -1,4 +1,5 @@
 from utils.Clear import clear
+from utils.commands import parse_and_execute_command
 class Console:
     
     def __init__(self,ProductServise,сreateProductScreen,logger):
@@ -9,6 +10,7 @@ class Console:
     def menu(self):
         print('\nFoodTraker\n')
         print("Welcome bro!!!!\n")
+        try:
         while True:
 
             print("Claculeta products: 1")
@@ -27,11 +29,11 @@ class Console:
                     while True:
                         
                         try:
-                        
                             choiceproduct = str(input("Name or id product =>"))
+                            parse_and_execute_command(choiceproduct)
                             choicegrams = int(input("Grams =>"))
-                            break
-                        except Exception as ex :
+                            
+                        except ValueError :
                             clear()
                             if isinstance(ex, ValueError):
                                 print("Velue not corect")
@@ -39,19 +41,35 @@ class Console:
                               self.logger.error(
                                  f"calculate choice -> {self.menu.__name__}: {ex }"
                                                 )
+                              print("Critical Error")
+                              break
                             
                     
                     
                         choiceProduct = self.productServise.ser_calculate(choiceproduct,choicegrams)
+                    
                         if not choiceProduct:
-                            print(f"Ви имели в виду {self.productServise.find_similar_product(choiceproduct)}?")
-                            choicesimilar = str(input("[Y/N] =>").upper)
-                            if choicesimilar == 'N':
-                                continue
-                            choiceProduct = self.productServise.ser_calculate(choiceproduct,choicegrams)
                             
+                            choiceProduct = self.productServise.find_similar_product(choiceproduct)
+                          
+                            if not choiceProduct:
+                                
+                                print("\nПродукта совершенно точно не существует \n")
+                                
+                                break
+                            
+                            print(f"Ви имели в виду {choiceProduct}?")
+                            
+                            choicesimilar = str(input("[Y/N] =>").upper())
+                            
+                            if choicesimilar == 'N':
+                                
+                                continue
+                            
+                            choiceProduct = self.productServise.ser_calculate(choiceProduct,choicegrams) 
                         print(choiceProduct)
                         break
+                        
                       
                     
                 
@@ -93,13 +111,13 @@ class Console:
                     
                     break
                 
-                case 5:
+                case 555:
                     
                     try :
                                                              
                         choiceproduct = int(input("Id product delite =>"))
                         
-                        print(self.productServise.)
+                        # print(self.productServise.)
                         
                     except Exception as ex :
                         

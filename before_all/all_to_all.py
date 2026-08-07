@@ -441,8 +441,67 @@ houer = 60
 #     )
 # )
 
-x = {'x':1, 'y': 2}
-print(len(x))
+# x = {'x':1, 'y': 2}
+# print(len(x))
+
+# x = {1,1,1,1,2,0,0,0,1}
+
+# print(len(set(x)))
+
+# a = {1, 2, 3, 4 ,5, -5, -4, -3, -2, -1, 0}
+# # x = 0
+
+# # for i in a:
+# #     x += i**2
+    
+# # print(x)
+
+# required = {'a','b'}
+
+
+# optional = {'c','d'}
+
+# user_data = set(input().split())
+
+# print(required.issubset(user_data) and user_data <=(required | optional) )
+
+
+# print(1 in a)
+
+
+# s = [i for i in input().split()]
+# s.sort()
+# x = {}
+
+# for i in s:
+    
+#         x.setdefault(i,0)
+#         x[i] +=1
+       
+# for key,value in x.items():
+#     print(f"{key} {value}") 
+
+# x = {1,2}
+# y = (1,2)
+# print(type(x))
+# print(type(y))
+# x = frozenset(x)
+# print(type(x))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
