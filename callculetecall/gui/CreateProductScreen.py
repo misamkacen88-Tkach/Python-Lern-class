@@ -1,13 +1,14 @@
 from utils.decorators import log
 from utils.Clear import clear
-from utils.commands import parse_and_execute_command
+
 
 class CreateProductScreen:
 
-    def __init__(self, productFields, logger):
+    def __init__(self, productFields,commands, logger):
 
-        self.logger = logger
         self.productFields = productFields
+        self.commands = commands
+        self.logger = logger
 
     @log
     def get_product_data(self):
@@ -21,7 +22,7 @@ class CreateProductScreen:
             for key, (prompt, date_tape) in self.productFields.MAIN.items():
                 try:
 
-                    parse_and_execute_command(date := input(prompt))
+                    self.commands.parse_and_execute_command(date := input(prompt))
                     data[key] = date_tape(date)
 
                 except ValueError:
@@ -46,18 +47,15 @@ class CreateProductScreen:
                 
                 try:
                     
-                    data["vitamins"][key] = float(input(key))
+                    self.commands.parse_and_execute_command(date := input(key))
+                    data["vitamins"][key] = float(date)
                      
-                except Exception as ex:
+                except ValueError:
                     
-                    if isinstance(ex, ValueError):
-                        print(f"Dont corect product stat [ {key} ]")
-                        break
-                    else:
-                        self.logger.error(
-                            f"GenereteVitamins error -> {self.get_product_data.__name__}: {ex} | key: {key}"
-                        )
-                        break
+                    
+                    print(f"Dont corect product stat [ {key} ]")
+                    break
+                    
                     
             if len(data["vitamins"]) == len(self.productFields.VITAMINS):
             
@@ -75,7 +73,9 @@ class CreateProductScreen:
                 
                 try:
                     
-                    data["minerals"][key] = float(input(key)) 
+                    self.commands.parse_and_execute_command(date := input(key))
+                    
+                    data["minerals"][key] = float(date) 
                     
                 except Exception as ex:
                     

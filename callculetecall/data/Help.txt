@@ -1,0 +1,11 @@
+[basecInfo]
+vertion - PreAlfa 0.0.5
+ather - Tkach0896
+git repositori - https://github.com/misamkacen88-Tkach/Python-Lern-class.git
+[\basecInfo]
+
+[Calaculeta]
+Ето сервис для подщета калорий в которий ви водите желаемий продукт либо его айди.
+После вводете желаемое количество грам и бам они пощитались 
+На етом все идите нахуй
+[\Calaculeta]

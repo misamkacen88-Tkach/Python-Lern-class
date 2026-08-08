@@ -1,11 +1,13 @@
 from utils.Clear import clear
-from utils.commands import parse_and_execute_command
 from exceptions.navigation import BackToMenu,ExitApplication
+
+
 class Console:
     
-    def __init__(self,ProductServise,сreateProductScreen,logger):
+    def __init__(self,ProductServise,сreateProductScreen,commands,logger):
         self.productServise = ProductServise
         self.сreateProductScreen = сreateProductScreen
+        self.commands = commands
         self.logger = logger
         
     def menu(self):
@@ -14,14 +16,14 @@ class Console:
         
         while True:
             try:
-                print("Claculeta products: 1")
+                print("Calaculeta products: 1")
                 print("Add products: 2")
                 print("find products: 3")
                 print("Exit: /exit -app")
                 print("Delite products: 5")
                 print("Сhange products: 6")
 
-                parse_and_execute_command(choice := input('=>'))
+                self.commands.parse_and_execute_command(choice := input('=>'))
                 
                 match int(choice):
                     
@@ -31,7 +33,10 @@ class Console:
                             
                             try:
                                 choiceproduct = str(input("Name or id product =>"))
-                                parse_and_execute_command(choiceproduct)
+                                command = self.commands.parse_and_execute_command(choiceproduct,context="Calaculeta")
+                                if command:
+                                    print(command)
+                                    continue
                                 choicegrams = int(input("Grams =>"))
                                 
                             except ValueError :
@@ -58,7 +63,7 @@ class Console:
                                 
                                 print(f"Ви имели в виду {choiceProduct}?")
                                 
-                                parse_and_execute_command(choicesimilar := str(input("[Y/N] =>").upper()))
+                                self.commands.parse_and_execute_command(choicesimilar := str(input("[Y/N] =>").upper()))
                                 
                                 if choicesimilar == 'N':
                                     
@@ -82,7 +87,7 @@ class Console:
                         while True:
                             try :
                                                 
-                                parse_and_execute_command(choiceproduct := input("Write product =>"))
+                                self.commands.parse_and_execute_command(choiceproduct := input("Write product =>"))
                                 
                             except ValueError :
                                
@@ -103,7 +108,7 @@ class Console:
                                 
                                 print(f"Ви имели в виду {choiceProduct}?")
                                 
-                                parse_and_execute_command(choicesimilar := str(input("[Y/N] =>").upper()))
+                                self.commands.parse_and_execute_command(choicesimilar := str(input("[Y/N] =>").upper()))
                                 
                                 if choicesimilar == 'N':
                                     break
@@ -120,7 +125,7 @@ class Console:
                         
                         try :
                                                                 
-                            parse_and_execute_command(choiceproduct := input("Name or id product delite => "))
+                            self.commands.parse_and_execute_command(choiceproduct := input("Name or id product delite => "))
                             
                             print(self.productServise.delite_product(choiceproduct))
                             

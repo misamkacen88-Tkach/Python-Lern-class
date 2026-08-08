@@ -334,3 +334,469 @@ INFO END -> _load_index
 INFO START -> find_product
 
 INFO END -> find_product
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> ser_calculate
+
+INFO START -> find_product
+
+INFO END -> find_product
+
+INFO END -> ser_calculate
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> ser_calculate
+
+INFO START -> find_product
+
+INFO END -> find_product
+
+INFO END -> ser_calculate
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+ERROR  --> Commands cannot unpack non-iterable NoneType object
+
+INFO END -> parse_and_execute_command
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+INFO END -> parse_and_execute_command
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+ERROR  --> Commands cannot unpack non-iterable NoneType object
+
+INFO END -> parse_and_execute_command
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+INFO END -> parse_and_execute_command
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+ERROR  --> Commands cannot unpack non-iterable NoneType object
+
+INFO END -> parse_and_execute_command
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+INFO END -> parse_and_execute_command
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+ERROR  --> Commands cannot unpack non-iterable NoneType object
+
+INFO END -> parse_and_execute_command
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+INFO END -> parse_and_execute_command
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+ERROR  --> Commands cannot unpack non-iterable NoneType object
+
+INFO END -> parse_and_execute_command
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+INFO END -> parse_and_execute_command
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+INFO END -> parse_and_execute_command
+
+ERROR  delite_product -> menu: invalid literal for int() with base 10: '/help'
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+ERROR  --> Commands cannot unpack non-iterable NoneType object
+
+INFO END -> parse_and_execute_command
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+INFO END -> parse_and_execute_command
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+INFO END -> parse_and_execute_command
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+ERROR  --> Commands cannot unpack non-iterable NoneType object
+
+INFO END -> parse_and_execute_command
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+INFO END -> parse_and_execute_command
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+ERROR  --> Commands cannot unpack non-iterable NoneType object
+
+INFO END -> parse_and_execute_command
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+INFO END -> parse_and_execute_command
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+ERROR  --> Commands cannot unpack non-iterable NoneType object
+
+INFO END -> parse_and_execute_command
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+INFO END -> parse_and_execute_command
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+ERROR  --> Commands cannot unpack non-iterable NoneType object
+
+INFO END -> parse_and_execute_command
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+INFO END -> parse_and_execute_command
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+ERROR  --> Commands cannot unpack non-iterable NoneType object
+
+INFO END -> parse_and_execute_command
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+INFO END -> parse_and_execute_command
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+INFO END -> parse_and_execute_command
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+ERROR  --> Commands cannot unpack non-iterable NoneType object
+
+INFO END -> parse_and_execute_command
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+INFO END -> parse_and_execute_command
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+INFO END -> parse_and_execute_command
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+ERROR  --> Commands cannot unpack non-iterable NoneType object
+
+INFO END -> parse_and_execute_command
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+INFO END -> parse_and_execute_command
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+ERROR  --> Commands cannot unpack non-iterable NoneType object
+
+INFO END -> parse_and_execute_command
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+INFO END -> parse_and_execute_command
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+INFO END -> parse_and_execute_command
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+ERROR  -> parse_and_execute_command: 
+
+INFO START -> _load_index
+
+INFO END -> _load_index
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+ERROR  --> Commands cannot unpack non-iterable NoneType object
+
+INFO END -> parse_and_execute_command
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+ERROR  --> Commands cannot unpack non-iterable NoneType object
+
+INFO END -> parse_and_execute_command
+
+INFO START -> ser_calculate
+
+INFO START -> find_product
+
+INFO END -> find_product
+
+INFO END -> ser_calculate
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+ERROR  --> Commands cannot unpack non-iterable NoneType object
+
+INFO END -> parse_and_execute_command
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+INFO END -> parse_and_execute_command
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+ERROR  --> Commands cannot unpack non-iterable NoneType object
+
+INFO END -> parse_and_execute_command
+
+INFO START -> parse_and_execute_command
+
+INFO START -> parse_command
+
+INFO END -> parse_command
+
+INFO END -> parse_and_execute_command
