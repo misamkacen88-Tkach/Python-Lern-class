@@ -1,11 +1,13 @@
 from utils.Clear import clear
 from exceptions.navigation import BackToMenu,ExitApplication
+from models.product import Product
+from models.Meal import Meal
 
 
 class Console:
     
-    def __init__(self,ProductServise,сreateProductScreen,commands,logger):
-        self.productServise = ProductServise
+    def __init__(self,foodServise,сreateProductScreen,commands,logger):
+        self.foodServise = foodServise
         self.сreateProductScreen = сreateProductScreen
         self.commands = commands
         self.logger = logger
@@ -32,11 +34,28 @@ class Console:
                         while True:
                             
                             try:
-                                choiceproduct = str(input("Name or id product =>"))
-                                command = self.commands.parse_and_execute_command(choiceproduct,context="Calaculeta")
-                                if command:
-                                    print(command)
-                                    continue
+                                match self.commands.parse_and_execute_command(
+                                                                                    str(input("What calculete?\nProduct 1\nMeal 2=>")),
+                                                                                    context="Calaculeta"
+                                                                                    ):
+                                    case "1":
+                                        food_class = Product
+                                    case "2":
+                                        food_class = Meal
+                                    case _:
+                                        print("Not corect object")
+                                        continue
+                                
+                                
+                                
+                                
+                                
+                                self.commands.parse_and_execute_command(
+                                                    choiceproduct := str(input(f"Name or id {food_class.class_name} =>")),
+                                                    context="Calaculeta"
+                                                    )
+                                
+                               
                                 choicegrams = int(input("Grams =>"))
                                 
                             except ValueError :
@@ -49,11 +68,11 @@ class Console:
                                 
                         
                         
-                            choiceProduct = self.productServise.ser_calculate(choiceproduct,choicegrams)
+                            choiceProduct = self.foodServise.ser_calculate(choiceproduct,choicegrams,cla)
                         
                             if not choiceProduct:
                                 
-                                choiceProduct = self.productServise.find_similar_product(choiceproduct)
+                                choiceProduct = self.foodServise.find_similar_food(choiceproduct)
                             
                                 if not choiceProduct:
                                     
@@ -69,7 +88,7 @@ class Console:
                                     
                                     continue
                                 
-                                choiceProduct = self.productServise.ser_calculate(choiceProduct,choicegrams) 
+                                choiceProduct = self.foodServise.ser_calculate(choiceProduct,choicegrams) 
                             print(choiceProduct)
                             break
                             
@@ -81,24 +100,24 @@ class Console:
                         
                         
                         
-                        print(f'\n{self.productServise.add_product(result)}\n')
+                        print(f'\n{self.foodServise.add_food(result)}\n')
                     
                     case 3:
                         while True:
                             try :
                                                 
-                                self.commands.parse_and_execute_command(choiceproduct := input("Write product =>"))
+                                self.commands.parse_and_execute_command(choiceproduct := input("Write food =>"))
                                 
                             except ValueError :
                                
                                 print("\nNOT CORECT CHOICE!!!\n ")
                                 continue
                                 
-                            choiceProduct = self.productServise.find_product(choiceproduct)
+                            choiceProduct = self.foodServise.find_food(choiceproduct)
                             
                             if not choiceProduct:
                                 
-                                choiceProduct = self.productServise.find_similar_product(choiceproduct)
+                                choiceProduct = self.foodServise.find_similar_food(choiceproduct)
                                 
                                 if not choiceProduct:
                                                                     
@@ -112,9 +131,10 @@ class Console:
                                 
                                 if choicesimilar == 'N':
                                     break
-                                сhoiceProduct = self.productServise.find_product(choiceproduct)
+                                elif choicesimilar == 'Y' :
+                                    сhoiceProduct = self.foodServise.find_food(choiceProduct)
                             
-                            print(choiceProduct)
+                            print(сhoiceProduct)
                             break
                         
                         
@@ -125,9 +145,10 @@ class Console:
                         
                         try :
                                                                 
-                            self.commands.parse_and_execute_command(choiceproduct := input("Name or id product delite => "))
+                            self.commands.parse_and_execute_command(choiceproduct := input("Name or id food delite => "))
                             
-                            print(self.productServise.delite_product(choiceproduct))
+                            
+                            print(self.foodServise.delite_food(choiceproduct))
                             
                         except ValueError :
                             
@@ -151,10 +172,7 @@ class Console:
                 print('\nProgram 200\n')
                 break
             
-            except Exception as ex:
-                self.logger.error(
-                    f" delite_product -> {self.menu.__name__}: {ex}"
-                                )
+            
                 
          
         

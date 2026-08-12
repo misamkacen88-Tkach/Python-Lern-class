@@ -7,7 +7,7 @@ class Commands:
         self.helpServise = HelpServise
         self.logger = logger
         
-    @log
+    
     def parse_command(self,text):
         
         if not text.startswith('/') or text.startswith('//'):
@@ -21,14 +21,14 @@ class Commands:
         return parts[0], parts[1:] if parts else None
     
 
-    @log
+    
     def parse_and_execute_command(self,text, context = None ):
         
         try:
             commands, args = self.parse_command(text)
             
         except Exception as ex:
-            self.logger.error(
+            self.logger.warning(
                 f" --> Commands {ex}"
             )
             return None
@@ -37,19 +37,19 @@ class Commands:
             
             case 'menu',[]:
                 
-                raise BackToMenu  #созданo
+                raise BackToMenu  
             
             case 'exit',['-app']:
                 
-                raise ExitApplication #создано
+                raise ExitApplication 
             
-            case 'help',[]: #test
+            case 'help',[]: 
                 
-                return self.helpServise.get_help(context= context) #text
+                return self.helpServise.get_help(context= context) #
         
             case 'help',[argument]:
         
-                return self.helpServise.get_help(argument= argument ) # test
+                return self.helpServise.get_help(argument= argument ) 
             case 'clear',[]:
                 clear()
             

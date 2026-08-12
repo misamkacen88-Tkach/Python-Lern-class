@@ -26,3 +26,7 @@ class ProductFields:
          "Фосфор: ", "Железо: ",
          "Цинк: ", "Селен: "
         ]
+        
+        self.MEAL = {"ingredients": ("Ингредиенти: ", str),
+                     "recipe":("Рецепт: ", int),
+                     }

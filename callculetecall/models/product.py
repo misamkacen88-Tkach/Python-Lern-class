@@ -1,5 +1,8 @@
 class Product:
 
+    database_path = "database/Product"
+    name_class = "Product"
+    
     def __init__(self, id, name,grams, calories, protein, fat, cards,fiber,minerals, vitamins):
 
         self.id = id
@@ -31,7 +34,7 @@ class Product:
     
     
     @classmethod
-    def from_lines(cls,lines):
+    def _data_from_lines(cls,lines):
         
         lines = [line.strip() for line in lines]
         
@@ -61,6 +64,18 @@ class Product:
                         "Железо":float(lines[21]),
                         "Цинк":float(lines[22]),
                         "Селен":float(lines[23])}}
+            
+         
+        
+        
+        
+        
+        return data
+        
+    @classmethod
+    def from_lines(cls,lines):
+        
+        data = cls._data_from_lines(lines)
             
          
         

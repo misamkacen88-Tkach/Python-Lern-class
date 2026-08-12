@@ -1,6 +1,6 @@
 import bd
 
-from servise.ProductServise import ProductServise
+from servise.FoodServise import FoodServise
 from servise.Calculator import Calculator
 from servise.HelpService import HelpService
 from gui.CreateProductScreen import CreateProductScreen
@@ -14,10 +14,10 @@ productFields = ProductFields()
 logger = Logger()
 helpService = HelpService("callculetecall/data")
 commands = Commands(helpService,logger)
-datebase = bd.Datebase(logger)
+database = bd.Database(logger)
 сreateProductScreen = CreateProductScreen(productFields,commands, logger)
-productServise = ProductServise(datebase, calculator, logger)
-console = Console(productServise,сreateProductScreen,commands, logger)
+foodServise = FoodServise(database, calculator, logger)
+console = Console(foodServise,сreateProductScreen,commands, logger)
 
 
 console.menu()

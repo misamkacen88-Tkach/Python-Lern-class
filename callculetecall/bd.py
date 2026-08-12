@@ -1,55 +1,61 @@
 import os
 from difflib import get_close_matches
 from models.product import Product
+from models.Meal import Meal
 from utils.decorators import log
 
 
 
 
-class Datebase:
+class Database:
     
     def __init__(self,logger):
-        if not os.path.exists("callculetecall/datebase"):
-            os.makedirs("callculetecall/datebase")
-            
+        
+        
+        self.paths = ["database/Product","database/Meal"]
+        
+        self.__for_Create_file(self.paths)
+        
         self.logger = logger
         
         self.name_to_id = {}
         
-        self._load_index()
+        self._load_index(self.paths)
         
     
     
     
-    def find_product_by_id(self,id_product):
+    def find_food_by_id(self,id_food, food_class):
        
         try:
-            with open(f"callculetecall/datebase/{id_product}.txt", 'r') as file:
+            with open(f"callculetecall/{food_class.database_path}/{id_food}.txt", 'r', encoding="utf-8") as file:
                 lines = file.readlines()
                 
-                product = Product.from_lines(lines)
+                food = food_class.from_lines(lines)
+                
                 
         except Exception as ex:    
             self.logger.warning(
-                f"Dont Find -> {self.find_product_by_id.__name__}: {ex}"
+                f"Dont Find -> {self.find_food_by_id.__name__}: {ex}"
                 )
             return None
             
-        return product
+        return food
     
     
-    def find_product_by_name(self,name):
+    def find_food_by_name(self,name,food_class = Product):
         
         name = name.lower()
         
+        
         if name in self.name_to_id:
             
-            return self.find_product_by_id(self.name_to_id[name])
+            return self.find_food_by_id(self.name_to_id[name], food_class)
         
         return None
     
     
-    def find_similar_product(self,name):
+    def find_similar_food(self,name):
         
      
         
@@ -65,39 +71,41 @@ class Datebase:
         
            
     
-    def save_product(self,product):
+    def save_food(self,food):
     
         
-        with open(f"callculetecall/datebase/{product.id}.txt", 'w') as file:
+        with open(f"callculetecall/{food.database_path}/{food.id}.txt", 'w',encoding="utf-8") as file:
             
-            file.write("\n".join(product.to_lines()))
+            file.write("\n".join(food.to_lines()))
         
-        self._update_index(product)
+        self._update_index(food)
             
         
-    def delite_product_by_id(self, product_id):
+    def delite_food_by_id(self, food_id, food_class = Product):
         
-        if os.path.exists(f"callculetecall/datebase/{product_id}.txt"):
-            os.remove(f"callculetecall/datebase/{product_id}.txt")
+        if os.path.exists(f"callculetecall/{food_class.database_path}/{food_id}.txt"):
+            os.remove(f"callculetecall/{food_class.database_path}/{food_id}.txt")
+            return "Продукт успешно удален"
+            
     
-    def delite_product_by_name(self, name):
+    def delite_food_by_name(self, name,food_class = Product):
         
         name = name.lower()
                 
         if name in self.name_to_id:
                     
-            return self.delite_product_by_id(self.name_to_id[name])
+            return self.delite_food_by_id(self.name_to_id[name], food_class)
                 
         return None
         
         
-    def get_new_product_id(self):
+    def get_new_food_id(self, food_class = Product):
         
          
 
         ids = [
             int(file[:-4])          
-            for file in os.listdir("callculetecall/datebase")
+            for file in os.listdir(f"callculetecall/{food_class.database_path}")
             if file.endswith(".txt")
         ]
 
@@ -112,34 +120,43 @@ class Datebase:
     
     
     
-    def _update_index(self, product):
+    def _update_index(self, food):
         
-        self.name_to_id[product.name.lower()] = product.id
+        self.name_to_id[food.name.lower()] = food.id
     
     
     @log
-    def _load_index(self):
+    def _load_index(self,paths):
         
         self.name_to_id.clear()
+        for file in paths:
+            for file_name in os.listdir(f"callculetecall/{file}"):
+                
+                
+                try:
+                    with open(f"callculetecall/{file}/{file_name}", 'r',encoding="utf-8" ) as file:
+                        
+                        
+                        id_food = int(file.readline().strip())
+                        
+                        name_food = file.readline().strip()
+                        
+                
+                except Exception as ex:
+                    self.logger.error(
+                        f" database -> {self._load_index.__name__}: {ex}"
+                                    )
+                    
+                self.name_to_id[name_food.lower()] = id_food
+
+
+
+    def __for_Create_file(self, paths):
         
-        for file_name in os.listdir("callculetecall/datebase"):
+        for file_name in paths:
             
-            
-            try:
-                with open(f"callculetecall/datebase/{file_name}", 'r' ) as file:
-                    
-                    
-                    id_product = int(file.readline().strip())
-                    
-                    name_product = file.readline().strip()
-            
-            except Exception as ex:
-                self.logger.error(
-                    f" datebase -> {self._load_index.__name__}: {ex}"
-                                  )
-                
-            self.name_to_id[name_product.lower()] = id_product
-                
+            if not os.path.exists(f"callculetecall/{file_name}"):
+                os.makedirs(f"callculetecall/{file_name}")
         
     
   

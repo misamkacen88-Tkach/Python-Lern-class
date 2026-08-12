@@ -11,11 +11,11 @@ class CreateProductScreen:
         self.logger = logger
 
     @log
-    def get_product_data(self):
+    def get_product_data(self, food="product"):
         clear()
         while True:
 
-            print("\t<Create product >\n")
+            print(f"\t<Create {food} >\n")
             print("Plise write lines:")
 
             data = {}
@@ -39,7 +39,7 @@ class CreateProductScreen:
         clear()
         while True:
         
-            print("\t<Create product stept 2 >\n")
+            print(f"\t<Create {food} stept 2 >\n")
             print("Plise write lines:")
             
             data["vitamins"] = {}
@@ -65,7 +65,7 @@ class CreateProductScreen:
         clear()
         while True:
         
-            print("\t<Create product stept 3 >\n")
+            print(f"\t<Create {food} stept 3 >\n")
             print("Plise write lines:")
             
             data["minerals"] = {}
